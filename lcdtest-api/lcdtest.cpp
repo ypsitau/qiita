@@ -8,6 +8,7 @@ using namespace jxglib;
 
 int main()
 {
+	// Initialize devices
 	::stdio_init_all();
 	::spi_init(spi1, 125 * 1000 * 1000);
 	GPIO14.set_function_SPI1_SCK();
