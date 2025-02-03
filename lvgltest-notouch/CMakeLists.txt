@@ -1,17 +1,3 @@
-# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
-if(WIN32)
-    set(USERHOME $ENV{USERPROFILE})
-else()
-    set(USERHOME $ENV{HOME})
-endif()
-set(sdkVersion 2.1.0)
-set(toolchainVersion 13_3_Rel1)
-set(picotoolVersion 2.1.0)
-set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
-if (EXISTS ${picoVscode})
-    include(${picoVscode})
-endif()
-# ====================================================================================
 # Generated Cmake Pico project file
 
 cmake_minimum_required(VERSION 3.13)
@@ -60,7 +46,7 @@ pico_enable_stdio_usb(lvgltest 0)
 
 # Add the standard library to the build
 target_link_libraries(lvgltest
-    pico_stdlib)
+        pico_stdlib)
 
 # Add the standard include files to the build
 target_include_directories(lvgltest PRIVATE
@@ -69,6 +55,6 @@ target_include_directories(lvgltest PRIVATE
 
 pico_add_extra_outputs(lvgltest)
 
-target_link_libraries(lvgltest jxglib_ILI9341 jxglib_ILI9488 jxglib_LVGL lvgl_examples)
+target_link_libraries(lvgltest jxglib_ST7789 jxglib_LVGL lvgl_examples)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../pico-jxglib pico-jxglib)
