@@ -18,7 +18,7 @@ int main()
 	LVGL::Adapter lvglAdapter;
 	lvglAdapter.EnableDoubleBuff().AttachOutput(display);
 	lvglAdapter.AttachInput(UART::Default);
-	::lv_example_anim_3();
+	::lv_example_keyboard_1();
 	for (;;) {
 		::sleep_ms(5);
 		::lv_timer_handler();
