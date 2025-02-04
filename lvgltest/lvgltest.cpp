@@ -20,6 +20,7 @@ int main()
 	ILI9341::TouchScreen touchScreen(spi0, {CS: GPIO6, IRQ: GPIO7});
 	display.Initialize(Display::Dir::Rotate90);
 	touchScreen.Initialize(display);
+	//touchScreen.Calibrate(display);
 	LVGL::Initialize();
 	LVGL::Adapter lvglAdapter;
 	lvglAdapter.EnableDoubleBuff().AttachOutput(display);
