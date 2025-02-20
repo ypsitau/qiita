@@ -27,6 +27,7 @@ int main()
 	touchScreen.Initialize(display);
 	//-----------------------------------------
 	Terminal terminal;
+	terminal.Initialize();
 	terminal.AttachOutput(display, {0, 0, 240, 220});
 	terminal.SetFont(Font::shinonome12).SetSpacingRatio(1., 1.2);
 	terminal.Suppress().Print(Text_Botchan);
