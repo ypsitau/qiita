@@ -21,7 +21,8 @@ int main()
 	display.Initialize(Display::Dir::Rotate90);
 	Terminal terminal;
 	terminal.Initialize();
-	terminal.AttachOutput(display).SetFont(Font::shinonome16).SetSpacingRatio(1., 1.2).ClearScreen();
+	terminal.AttachOutput(display);
+    terminal.SetFont(Font::shinonome16).SetSpacingRatio(1., 1.2).ClearScreen();
 	terminal.Suppress();
 	terminal.Print(Text_Botchan);
 	terminal.Suppress(false);
