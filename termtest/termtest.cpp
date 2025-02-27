@@ -7,6 +7,8 @@
 
 using namespace jxglib;
 
+Terminal terminal;
+
 int main()
 {
 	::stdio_init_all();
@@ -19,8 +21,6 @@ int main()
 	GPIO21.init().pull_up();
 	ST7789 display(spi1, 240, 320, {RST: GPIO10, DC: GPIO11, CS: GPIO12, BL: GPIO13});
 	display.Initialize(Display::Dir::Rotate90);
-	Terminal terminal;
-	terminal.Initialize();
 	terminal.AttachOutput(display);
     terminal.SetFont(Font::shinonome16).SetSpacingRatio(1., 1.2).ClearScreen();
 	terminal.Suppress();
@@ -31,10 +31,11 @@ int main()
 		terminal.Println();
 	}
 	for (;;) {
-		if (!GPIO18.get()) terminal.RollUp();
-		if (!GPIO19.get()) terminal.RollDown();
-		if (!GPIO20.get()) terminal.Dump.Cols(8).Ascii()(reinterpret_cast<const void*>(0x10000000), 64);
-		if (!GPIO21.get()) terminal.CreateReader().WriteTo(stdout);
-		::sleep_ms(100);
+		if (Tickable::Tick(100)) {
+			if (!GPIO18.get()) terminal.RollUp();
+			if (!GPIO19.get()) terminal.RollDown();
+			if (!GPIO20.get()) terminal.Dump.Cols(8).Ascii()(reinterpret_cast<const void*>(0x10000000), 64);
+			if (!GPIO21.get()) terminal.CreateReader().WriteTo(stdout);
+		}
 	}
 }
