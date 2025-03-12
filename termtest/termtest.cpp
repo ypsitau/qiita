@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "jxglib/Terminal.h"
 #include "jxglib/ST7789.h"
 #include "jxglib/Font/shinonome16-japanese-level2.h"
 #include "jxglib/sample/Text_Botchan.h"
 
 using namespace jxglib;
 
-Terminal terminal;
+Display::Terminal terminal;
 
 int main()
 {
@@ -35,6 +34,6 @@ int main()
 		if (!GPIO19.get()) terminal.RollDown();
 		if (!GPIO20.get()) terminal.Dump.Cols(8).Ascii()(reinterpret_cast<const void*>(0x10000000), 64);
 		if (!GPIO21.get()) terminal.CreateReader().WriteTo(stdout);
-		Tickable::Sleep(100);
+		::sleep_ms(100);
 	}
 }

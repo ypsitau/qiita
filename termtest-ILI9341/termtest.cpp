@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <examples/lv_examples.h>
 #include "pico/stdlib.h"
-#include "jxglib/Terminal.h"
 #include "jxglib/ILI9341.h"
 #include "jxglib/LVGL.h"
 #include "jxglib/Font/shinonome12-japanese-level2.h"
@@ -9,7 +8,7 @@
 
 using namespace jxglib;
 
-Terminal terminal;
+Display::Terminal terminal;
 
 void OnValueChanged_btnm(lv_event_t* e);
 
