@@ -42,7 +42,7 @@ pico_set_program_version(lvgltest "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(lvgltest 1)
-pico_enable_stdio_usb(lvgltest 0)
+pico_enable_stdio_usb(lvgltest 1)
 
 # Add the standard library to the build
 target_link_libraries(lvgltest
@@ -55,6 +55,6 @@ target_include_directories(lvgltest PRIVATE
 
 pico_add_extra_outputs(lvgltest)
 
-target_link_libraries(lvgltest jxglib_ST7789 jxglib_LVGL lvgl_examples)
+target_link_libraries(lvgltest jxglib_Stdio jxglib_ST7789 jxglib_LVGL lvgl_examples)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../pico-jxglib pico-jxglib)

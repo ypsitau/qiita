@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <examples/lv_examples.h>
 #include "pico/stdlib.h"
+#include "jxglib/Stdio.h"
 #include "jxglib/ST7789.h"
 #include "jxglib/LVGL.h"
 
@@ -17,7 +18,7 @@ int main()
 	LVGL::Initialize();
 	LVGL::Adapter lvglAdapter;
 	lvglAdapter.EnableDoubleBuff().AttachOutput(display);
-	lvglAdapter.AttachInput(UART::Default);
+	lvglAdapter.AttachInput(Stdio::Keyboard::Instance);
 	::lv_example_keyboard_1();
 	for (;;) {
 		::sleep_ms(5);
