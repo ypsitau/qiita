@@ -27,15 +27,15 @@ int main()
 	display.Initialize(Display::Dir::Rotate0);
 	touchScreen.Initialize(display);
 	//-----------------------------------------
-	terminal.AttachOutput(display, {0, 0, 240, 220});
+	terminal.AttachDisplay(display, {0, 0, 240, 220});
 	terminal.SetFont(Font::shinonome12).SetSpacingRatio(1., 1.2);
 	terminal.Suppress().Print(Text_Botchan);
 	terminal.Suppress(false);
 	//-----------------------------------------
 	LVGL::Initialize();
 	LVGL::Adapter lvglAdapter;
-	lvglAdapter.AttachOutput(display, {0, 220, 240, 100});
-	lvglAdapter.AttachInput(touchScreen);
+	lvglAdapter.AttachDisplay(display, {0, 220, 240, 100});
+	lvglAdapter.AttachTouchScreen(touchScreen);
 	do {
 		static const char* labelTbl[] = {
 			"Roll Up", "Dump", "\n",

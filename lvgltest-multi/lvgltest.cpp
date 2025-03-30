@@ -27,11 +27,11 @@ int main()
 	touchScreen2.Initialize(display2);
 	LVGL::Initialize();
 	LVGL::Adapter lvglAdapter1;
-	lvglAdapter1.AttachOutput(display1);
-	lvglAdapter1.AttachInput(touchScreen1);
+	lvglAdapter1.AttachDisplay(display1);
+	lvglAdapter1.AttachTouchScreen(touchScreen1);
 	LVGL::Adapter lvglAdapter2;
-	lvglAdapter2.SetPartialNum(20).AttachOutput(display2);
-	lvglAdapter2.AttachInput(touchScreen2);
+	lvglAdapter2.SetPartialNum(20).AttachDisplay(display2);
+	lvglAdapter2.AttachTouchScreen(touchScreen2);
 	lvglAdapter1.SetDefault();
 	::lv_example_anim_3();
 	lvglAdapter2.SetDefault();
