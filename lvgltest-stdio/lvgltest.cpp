@@ -17,8 +17,7 @@ int main()
 	display.Initialize(Display::Dir::Rotate90);
 	LVGL::Initialize();
 	LVGL::Adapter lvglAdapter;
-	lvglAdapter.EnableDoubleBuff().AttachDisplay(display);
-	lvglAdapter.AttachKeyboard(Stdio::Keyboard::Instance);
+	lvglAdapter.EnableDoubleBuff().AttachDisplay(display).AttachKeyboard(Stdio::GetKeyboard());
 	::lv_example_keyboard_1();
 	for (;;) {
 		::sleep_ms(5);
