@@ -1,2 +1,4 @@
 build
 .vscode
+.remote
+node_modules
